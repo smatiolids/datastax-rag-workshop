@@ -216,10 +216,10 @@ def load_vectorstore(username):
     print(f"load_vectorstore: Astra DB ID: {ASTRA_DB_VECTOR_API_ENDPOINT[8:44]}")
     # Get the load_vectorstore store from Astra DB
     return AstraDBVectorStore(
-        # Astra Vector Store connection
+        # TO-DO: Astra Vector Store connection
         # https://python.langchain.com/docs/integrations/vectorstores/astradb#connection-parameters
         collection_name=f"vector_context_{username}",
-        ...
+        # ...
     )
 
 # Cache Retriever for future runs
@@ -255,11 +255,9 @@ def load_model():
 def load_chat_history(username):
     print("load_chat_history")
     return AstraDBChatMessageHistory(
-        session_id=username,
-        token=ASTRA_DB_VECTOR_TOKEN,  # st.secrets["ASTRA_VECTOR_TOKEN"],
-        # os.environ["ASTRA_VECTOR_ENDPOINT"],
-        api_endpoint=ASTRA_DB_VECTOR_API_ENDPOINT
-
+        # TO-DO: Init memory
+        # https://python.langchain.com/docs/integrations/memory/astradb_chat_message_history#example
+        # ...
     )
 
 

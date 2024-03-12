@@ -22,13 +22,16 @@ load_dotenv()
 
 CUSTOMER_ID = 'f08a6894-1863-491d-8116-3945fb915597'  # Mocked for testing
 ASTRA_URL = f'{os.environ.get("ASTRA_API_ENDPOINT")}/api/rest/v2/keyspaces/{os.environ.get("ASTRA_KEYSPACE")}'
+
+#Initialize connection for Tools
 astra_db = AstraDB(
     api_endpoint=os.environ.get("ASTRA_DB_VECTOR_API_ENDPOINT"),
     token=os.environ.get("ASTRA_DB_VECTOR_TOKEN"),
 )
 
-airline_tickets_collection = AstraDBCollection(
-    "airlines_tickets",  astra_db=astra_db)
+# TO-DO: Load tickets and init colletcion
+# https://github.com/datastax/astrapy?tab=readme-ov-file#22-connect-to-existing-collection
+airline_tickets_collection = AstraDBCollection(...)
 
 # For the connection with CQL Tables, we will leverage the AstraDB REST API.
 
@@ -109,8 +112,9 @@ class ScheduledFlightDetailInput(BaseModel):
 def get_flight_detail(ticket_id: str) -> [str]:
     """Returns information about on flight"""
     print(f"Flight detail: {ticket_id}")
-    # 
+    # TO-DO:
     # Define a filter and use the find_one method to get the appropriate answer 
+    # https://github.com/datastax/astrapy?tab=readme-ov-file#53-find-one-and-update-with-vector-search
     return {}
 
 # Auxiliary functions
